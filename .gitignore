@@ -1,0 +1,7 @@
+# Archivo de variables de entorno con credenciales
+.env
+# Directorio de dependencias de Node.js
+/node_modules
+# Archivos ejecutables que no deben estar en el repositorio
+League of Legends.bat
+config.json

@@ -1,0 +1,9 @@
+{
+    "games": [
+      {
+        "name": "League of Legends",
+        "path": "C:\\Riot Games\\Riot Client\\RiotClientServices.exe",
+        "minLines": 0
+      }
+    ]
+}
