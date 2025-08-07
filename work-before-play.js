@@ -27,7 +27,7 @@ const headers = {
 
 async function getRepos() {
   try {
-    const url = `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100`;
+    const url = `https://api.github.com/user/repos?per_page=100`;;
     const res = await axios.get(url, { headers });
     return res.data;
   } catch (error) {
@@ -38,6 +38,7 @@ async function getRepos() {
 
 async function getCommitsToday(repo) {
   try {
+    console.error(`Obteniendo commits para ${repo.name}`);
     const url = `https://api.github.com/repos/${GITHUB_USERNAME}/${repo.name}/commits?author=${GITHUB_USERNAME}`;
     const res = await axios.get(url, { headers });
     const todayCommits = res.data.filter(c =>
@@ -58,6 +59,7 @@ async function getCommitsToday(repo) {
 async function getTotalAdditionsToday() {
   const repos = await getRepos();
   let total = 0;
+  console.log(`Repositorios encontrados: ${repos.length}`);
   for (const repo of repos) {
     total += await getCommitsToday(repo);
   }
